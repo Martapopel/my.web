@@ -1,0 +1,11 @@
+:root {
+  --green: #f57ac8;
+  --basewhite: rgba(255, 255, 255, 1);
+  --baseblack: rgba(20, 10, 50, 1);
+  --graymedium: rgba(47, 43, 67, 0.5);
+  --graylow: rgba(47, 43, 67, 0.4);
+  --grayhigh: rgba(47, 43, 67, 0.7);
+  --greengreen: rgba(18, 183, 106, 1);
+  --graybackground: rgba(47, 43, 67, 0.04);
+  --grayborders: rgba(47, 43, 67, 0.15);
+}
