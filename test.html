@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Menu Example</title>
+    <style>
+        /* Контейнер для меню */
+        .menu-container {
+            position: relative;
+        }
+
+        /* Кнопка (три полоски) */
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-btn__bar {
+            width: 30px;
+            height: 4px;
+            background-color: #333;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Скрытое боковое меню */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -300px; /* Изначально скрыто (справа за экраном) */
+            width: 300px;
+            height: 100%;
+            background-color: #fff;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            transition: right 0.3s ease;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .side-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .side-menu li {
+            margin: 20px 0;
+        }
+
+        .side-menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .side-menu a:hover {
+            color: #e91e63;
+        }
+
+        /* Меню открыто */
+        .side-menu.open {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <!-- Кнопка меню -->
+        <button id="menu-btn" class="menu-btn">
+            <div class="menu-btn__bar"></div>
+            <div class="menu-btn__bar"></div>
+            <div class="menu-btn__bar"></div>
+        </button>
+
+        <!-- Боковое меню -->
+        <div id="side-menu" class="side-menu">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Получаем элементы кнопки и меню
+        const menuBtn = document.getElementById('menu-btn');
+        const sideMenu = document.getElementById('side-menu');
+
+        // При клике на кнопку
+        menuBtn.addEventListener('click', () => {
+            // Добавляем или удаляем класс open
+            sideMenu.classList.toggle('open');
+        });
+
+        // Закрытие меню при клике за пределами
+        document.addEventListener('click', (event) => {
+            if (!sideMenu.contains(event.target) && !menuBtn.contains(event.target)) {
+                sideMenu.classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>
